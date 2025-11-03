@@ -1,0 +1,58 @@
+/* 🎯 === Top Offer Bar (Responsive) === */
+.top-offer-bar {
+  background-color: #b11111; /* red background */
+  color: white;
+  text-align: center;
+  font-size: 15px;
+  font-weight: 600;
+  padding: 8px 0;
+  height: auto; /* changed for flexible height */
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.3px;
+  line-height: 1.5;
+}
+
+.top-offer-bar p {
+  margin: 0;
+  padding: 0 10px;
+  word-wrap: break-word;
+}
+
+/* ✨ Highlight Styles */
+.highlight-number {
+  color: #00ffff; /* light blue for emoji part */
+}
+
+.highlight-offer {
+  color: #ffeb3b; /* yellow for offer percentage */
+  font-weight: 700;
+}
+
+.highlight-code {
+  color: #ffeb3b; /* yellow for code */
+  font-weight: 800;
+  margin-left: 2px;
+}
+
+/* 📱 Responsive Styles */
+
+/* Medium Devices (Tablets) */
+@media (max-width: 992px) {
+  .top-offer-bar {
+    font-size: 14px;
+    padding: 6px 0;
+  }
+}
+
+/* Small Devices (Mobiles) */
+@media (max-width: 600px) {
+  .top-offer-bar {
+    font-size: 12.5px;
+    padding: 5px 8px;
+    line-height: 1.4;
+  }
+
+  .top-offer-bar p {
+    padding: 0 8px;
+  }
+}

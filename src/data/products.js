@@ -41,7 +41,7 @@ export const geekHoodies = [
   {
     id: 4,
     title: "Be Nice To Me Unisex Hoodie",
-    image: "/assets/hoodies/be-nice-to-me-CM.webp",
+    image: "/assets/hoodies/aws-CM.webp",
     price: 999,
   },
   {
@@ -53,7 +53,7 @@ export const geekHoodies = [
   {
     id: 6,
     title: "Code Blooded Unisex Hoodie",
-    image: "/assets/hoodies/CodeBlooded-B.webp",
+    image: "/assets/hoodies/aws-CM.webp",
     price: 999,
   },
   {

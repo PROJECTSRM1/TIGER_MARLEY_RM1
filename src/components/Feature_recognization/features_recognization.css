@@ -1,0 +1,75 @@
+/* 🎯 === Features Section === */
+.features-section {
+  text-align: center;
+  padding: 30px 0;
+  background: #fff;
+}
+
+/* 🏷️ Title */
+.features-title {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 30px;
+  color: #222;
+  position: relative;
+}
+
+/* 🧩 Grid Layout */
+.features-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+  transition: all 0.5s ease;
+}
+
+/* 💎 Feature Cards */
+.feature-card img {
+  width: 200px;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.feature-card img:hover {
+  transform: scale(1.1);
+}
+
+/* 📱 Responsive Styles */
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
+  .features-title {
+    font-size: 20px;
+  }
+
+  .features-grid {
+    gap: 30px;
+  }
+
+  .feature-card img {
+    width: 160px;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 600px) {
+  .features-section {
+    padding: 20px 10px;
+  }
+
+  .features-title {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+
+  .features-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+
+  .feature-card img {
+    width: 140px;
+  }
+}

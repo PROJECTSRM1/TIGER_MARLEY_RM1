@@ -1,0 +1,164 @@
+/* 🌟 Page container */
+.motorsports-page {
+  padding: 40px 60px;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+}
+
+/* 🏁 Category section (Half Sleeve, Oversized, Hoodie) */
+.category-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.category-card {
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.category-card img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  margin-bottom: 10px;
+}
+
+.category-card p {
+  font-weight: 600;
+  color: #333;
+}
+
+.category-card:hover {
+  transform: scale(1.07);
+}
+
+/* 🎛️ Filter dropdown */
+.filter-section {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 25px;
+  gap: 10px;
+}
+
+.filter-section label {
+  font-weight: 600;
+  color: #444;
+}
+
+.filter-section select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+  font-size: 15px;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+/* 🛍️ Product Grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+}
+
+/* 🧢 Product Card */
+.product-card {
+  border: 1px solid #eee;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: #fff;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 270px;
+  border-radius: 8px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.product-card h4 {
+  font-size: 16px;
+  color: #222;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.product-card p {
+  margin: 0;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: #e60023;
+  font-weight: 600;
+}
+
+/* 📱 Responsive Design */
+
+/* Medium screens (tablets) */
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .motorsports-page {
+    padding: 30px 40px;
+  }
+}
+
+/* Small screens (mobile) */
+@media (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .category-section {
+    gap: 40px;
+  }
+
+  .category-card img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .filter-section {
+    justify-content: center;
+  }
+}
+
+/* Very small screens (phones) */
+@media (max-width: 480px) {
+  .product-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .motorsports-page {
+    padding: 20px;
+  }
+
+  .product-card img {
+    height: 240px;
+  }
+}

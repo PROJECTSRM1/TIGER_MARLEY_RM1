@@ -1,0 +1,128 @@
+/* 🌟 Limited Editions Section */
+.limited-editions-section {
+  text-align: center;
+  padding: 20px 40px 60px 40px;
+  max-width: 1300px;
+  margin: 0 auto;
+  background-color: #fff;
+}
+
+/* GRID CONTAINER */
+.limited-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  justify-content: center;
+  align-items: start;
+  margin: 0 auto;
+}
+
+/* CARD STYLE */
+.limited-card {
+  background-color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+  padding-bottom: 12px;
+  width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
+}
+
+.limited-card:hover {
+  transform: translateY(-6px);
+}
+
+/* IMAGE STYLE */
+.limited-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px 10px 0 0;
+}
+
+/* TEXT STYLE */
+.limited-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+  margin: 10px 12px;
+  line-height: 1.4;
+  min-height: 40px;
+}
+
+/* PRICE ROW */
+.price-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+}
+
+.new-price {
+  color: #e30613;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+/* 📱 Responsive Layouts */
+
+/* --- Medium Devices (Tablets) --- */
+@media (max-width: 992px) {
+  .limited-editions-section {
+    padding: 20px 25px 50px 25px;
+  }
+
+  .limited-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .limited-card img {
+    height: 200px;
+  }
+
+  .limited-card h3 {
+    font-size: 14.5px;
+  }
+}
+
+/* --- Small Devices (Mobiles) --- */
+@media (max-width: 600px) {
+  .limited-editions-section {
+    padding: 15px 15px 40px 15px;
+  }
+
+  .limited-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .limited-card {
+    max-width: 90%;
+  }
+
+  .limited-card img {
+    height: 180px;
+  }
+
+  .limited-card h3 {
+    font-size: 14px;
+  }
+
+  .old-price {
+    font-size: 13px;
+  }
+
+  .new-price {
+    font-size: 14px;
+  }
+}
