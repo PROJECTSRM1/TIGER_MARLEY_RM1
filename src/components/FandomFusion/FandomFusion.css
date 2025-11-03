@@ -1,0 +1,71 @@
+/* 🎯 === Fandom Fusion Section === */
+.fandom-fusion-container {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+/* 🏷️ Title */
+.fandom-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 5px;
+}
+
+/* 🔴 Red Underline */
+.red-underline {
+  width: 80px;
+  height: 3px;
+  background-color: #e30613;
+  margin: 0 auto 10px auto;
+  border-radius: 5px;
+}
+
+/* ✨ Subtitle Text */
+.fandom-text {
+  font-size: 16px;
+  color: #333;
+  font-style: italic;
+}
+
+/* 📱 Responsive Design */
+
+/* Tablets and small laptops */
+@media (max-width: 992px) {
+  .fandom-title {
+    font-size: 24px;
+  }
+
+  .fandom-text {
+    font-size: 15px;
+  }
+
+  .red-underline {
+    width: 70px;
+  }
+}
+
+/* Mobile devices */
+@media (max-width: 600px) {
+  .fandom-fusion-container {
+    padding: 15px 10px;
+    margin-bottom: 15px;
+  }
+
+  .fandom-title {
+    font-size: 20px;
+  }
+
+  .fandom-text {
+    font-size: 14px;
+    padding: 0 10px; /* add breathing room */
+  }
+
+  .red-underline {
+    width: 60px;
+    height: 2.5px;
+  }
+}

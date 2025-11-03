@@ -1,0 +1,113 @@
+/* 🏟️ Main container */
+.football-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ⚽ Category Section */
+.football-categories {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 40px;
+}
+
+.category-card {
+  text-align: center;
+}
+
+.category-card img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #f2f2f2;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-card h3 {
+  margin-top: 10px;
+  font-size: 16px;
+  color: #333;
+}
+
+/* ⚙️ Filter and Sort Bar */
+.football-filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  padding: 0 10px;
+}
+
+.filter-btn {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.sort-dropdown {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+/* 👕 Product Grid */
+.football-products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+}
+
+.product-card {
+  text-align: center;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.product-card h4 {
+  font-size: 15px;
+  font-weight: 500;
+  margin: 12px 0 6px;
+  color: #222;
+}
+
+/* 💰 Price Section */
+.price-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.old-price {
+  color: #999;
+  text-decoration: line-through;
+  font-size: 13px;
+}
+
+.new-price {
+  color: #e91e63;
+  font-weight: bold;
+  font-size: 15px;
+}
