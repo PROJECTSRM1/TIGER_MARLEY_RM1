@@ -13,7 +13,6 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Men");
 
-
   // 🧩 Category-based product data
   const productsData = {
     Combo: [
@@ -50,8 +49,8 @@ const Navbar = () => {
   const filteredProducts =
     selectedCategory && productsData[selectedCategory]
       ? productsData[selectedCategory].filter((p) =>
-        p.title.toLowerCase().includes(query.toLowerCase())
-      )
+          p.title.toLowerCase().includes(query.toLowerCase())
+        )
       : [];
 
   // 🧩 Handle Login
@@ -73,6 +72,7 @@ const Navbar = () => {
 
   return (
     <>
+      {/* 🧭 Navbar Header */}
       <header className="navbar">
         <div className="logo">
           <h1>
@@ -83,7 +83,6 @@ const Navbar = () => {
         <div className="icons">
           <Search className="icon" onClick={() => setIsSearchOpen(true)} />
 
-          {/* 👤 User Icon */}
           <div className="user-section">
             <User
               className="icon"
@@ -99,22 +98,20 @@ const Navbar = () => {
             <Heart className="icon" />
             <span className="badge">0</span>
           </div>
+
           <div className="icon-badge">
             <ShoppingCart className="icon" />
             <span className="badge">2</span>
           </div>
-          <Menu className="icon" onClick={() => setIsMenuOpen(true)} />
 
+          <Menu className="icon" onClick={() => setIsMenuOpen(true)} />
         </div>
       </header>
 
       {/* 🔍 Search Panel */}
       {isSearchOpen && (
         <div className="search-overlay" onClick={() => setIsSearchOpen(false)}>
-          <div
-            className="search-panel"
-            onClick={(e) => e.stopPropagation()}
-          >
+          <div className="search-panel" onClick={(e) => e.stopPropagation()}>
             <div className="search-header">
               <h3>SEARCH OUR SITE</h3>
               <X className="close-icon" onClick={() => setIsSearchOpen(false)} />
@@ -136,47 +133,46 @@ const Navbar = () => {
             </select>
 
             {selectedCategory && (
-              <div className="search-input-box">
-                <input
-                  type="text"
-                  placeholder={`Search in ${selectedCategory}`}
-                  value={query}
-                  onChange={(e) => setQuery(e.target.value)}
-                />
-                <Search className="search-input-icon" />
-              </div>
-            )}
+              <>
+                <div className="search-input-box">
+                  <input
+                    type="text"
+                    placeholder={`Search in ${selectedCategory}`}
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                  />
+                  <Search className="search-input-icon" />
+                </div>
 
-            {selectedCategory && (
-              <div className="search-results">
-                {filteredProducts.length > 0 ? (
-                  filteredProducts.map((item) => (
-                    <div key={item.id} className="search-item">
-                      <img src={item.image} alt={item.title} />
-                      <div>
-                        <h4>{item.title}</h4>
-                        <p>
-                          <span className="old-price">₹{item.oldPrice}</span>{" "}
-                          <span className="new-price">₹{item.price}</span>
-                        </p>
+                <div className="search-results">
+                  {filteredProducts.length > 0 ? (
+                    filteredProducts.map((item) => (
+                      <div key={item.id} className="search-item">
+                        <img src={item.image} alt={item.title} />
+                        <div>
+                          <h4>{item.title}</h4>
+                          <p>
+                            <span className="old-price">₹{item.oldPrice}</span>{" "}
+                            <span className="new-price">₹{item.price}</span>
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))
-                ) : query ? (
-                  <p className="no-results">No results found</p>
-                ) : (
-                  <p className="no-results">
-                    Type to search {selectedCategory} products
-                  </p>
-                )}
-              </div>
+                    ))
+                  ) : query ? (
+                    <p className="no-results">No results found</p>
+                  ) : (
+                    <p className="no-results">
+                      Type to search {selectedCategory} products
+                    </p>
+                  )}
+                </div>
+              </>
             )}
           </div>
         </div>
       )}
 
-      {/* 🔐 Login Modal */}
-      {/* 🔐 Login Drawer */}
+      {/* 🔐 Login Drawer
       {isLoginOpen && (
         <div className="login-overlay" onClick={() => setIsLoginOpen(false)}>
           <div className="login-drawer" onClick={(e) => e.stopPropagation()}>
@@ -209,7 +205,7 @@ const Navbar = () => {
               <button
                 type="button"
                 className="forgot-password"
-                onClick={() => alert("Redirect to forgot password page")}
+                onClick={() => console.log("Forgot Password clicked")}
               >
                 Forgot your password?
               </button>
@@ -217,19 +213,20 @@ const Navbar = () => {
               <button
                 type="button"
                 className="new-account"
-                onClick={() => alert("Redirect to signup page")}
+                onClick={() => console.log("Redirect to signup page")}
               >
                 New customer? Create your account
               </button>
 
-              <a href="#" className="new-account">
-                New customer? Create your account
-              </a>
+              <button type="submit" className="login-btn">
+                Sign In
+              </button>
             </form>
           </div>
         </div>
-      )}
-      {/* 🍔 Menu Drawer */}
+      )} */}
+
+      🍔 Menu Drawer
       {isMenuOpen && (
         <div className="menu-overlay" onClick={() => setIsMenuOpen(false)}>
           <div className="menu-drawer" onClick={(e) => e.stopPropagation()}>
@@ -238,11 +235,15 @@ const Navbar = () => {
               <X className="close-icon" onClick={() => setIsMenuOpen(false)} />
             </div>
 
-            <div className="menu-login">
-              <a href="#" onClick={() => setIsLoginOpen(true)}>
+            {/* <div className="menu-login">
+              <button
+                type="button"
+                onClick={() => setIsLoginOpen(true)}
+                className="login-button"
+              >
                 Login / Register
-              </a>
-            </div>
+              </button>
+            </div> */}
 
             {/* Tabs */}
             <div className="menu-tabs">
@@ -259,25 +260,21 @@ const Navbar = () => {
 
             {/* Tab Content */}
             <div className="menu-content">
-              {/* 👕 MEN / WOMEN / KIDS TABS COMBINED */}
-
+              {/* 🧢 MEN TAB */}
               {activeTab === "Men" && (
                 <>
-                  {/* 🧢 Men's Shirt Section */}
                   <div className="menu-section">
                     <h4>
                       Men’s Shirt <span className="tag red">New</span>
                     </h4>
                   </div>
 
-                  {/* 🎮 Geek Section */}
                   <div className="menu-section">
                     <h4>
                       Geek <span className="tag yellow">Top Seller</span>
                     </h4>
                   </div>
 
-                  {/* 🎌 Shop by Anime */}
                   <div className="menu-section">
                     <h4>Shop by Anime</h4>
                     <div className="anime-icons">
@@ -303,7 +300,6 @@ const Navbar = () => {
                     </div>
                   </div>
 
-                  {/* ⚙️ Categories */}
                   <div className="menu-section">
                     <h4>
                       <span className="tag red">Motorsport</span>
@@ -322,118 +318,73 @@ const Navbar = () => {
                     <h4>Gift Cards</h4>
                   </div>
 
-                  {/* 📧 Contact Section */}
                   <div className="menu-section contact">
                     <h4>Get in Touch</h4>
-                    <a href="mailto:care@dudeme.in" className="contact-email">
+                    <a
+                      href="mailto:care@rm1codershub.com"
+                      className="contact-email"
+                    >
                       care@rm1codershub.com
                     </a>
                   </div>
                 </>
               )}
 
+              {/* 👩 WOMEN TAB */}
               {activeTab === "Women" && (
                 <>
-                  {/* 👩 WOMEN TAB */}
                   <div className="menu-section">
-                    <div className="menu-item">
-                      <i className="fas fa-dragon"></i>
-                      <p>
-                        Anime <span className="tag orange">Best Selling</span>
-                      </p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-glasses"></i>
-                      <p>Geek</p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-heart"></i>
-                      <p>Couple</p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-tint"></i>
-                      <p>Solids</p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-layer-group"></i>
-                      <p>Combos</p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-fire"></i>
-                      <p>Clearance</p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-briefcase"></i>
-                      <p>Corporate Orders</p>
-                    </div>
-
-                    <div className="menu-item">
-                      <i className="fas fa-gift"></i>
-                      <p>Gift Cards</p>
-                    </div>
+                    <p>
+                      Anime <span className="tag orange">Best Selling</span>
+                    </p>
+                    <p>Geek</p>
+                    <p>Couple</p>
+                    <p>Solids</p>
+                    <p>Combos</p>
+                    <p>Clearance</p>
+                    <p>Corporate Orders</p>
+                    <p>Gift Cards</p>
                   </div>
 
-                  {/* 📧 Contact Section */}
                   <div className="menu-section contact">
                     <h4>Get in Touch</h4>
-                    <a href="mailto:care@dudeme.in" className="contact-email">
+                    <a
+                      href="mailto:care@rm1codershub.com"
+                      className="contact-email"
+                    >
                       care@rm1codershub.com
                     </a>
                   </div>
                 </>
               )}
 
+              {/* 🧒 KIDS TAB */}
               {activeTab === "Kids" && (
                 <>
-                  {/* 🧒 KIDS TAB */}
                   <div className="menu-section">
                     <h4>
                       Geek <span className="tag yellow">Top Seller</span>
                     </h4>
                   </div>
 
-                  {/* Age Groups */}
                   <div className="menu-section age-groups">
-                    <div className="age-item">
-                      <i className="fas fa-baby"></i>
-                      <p>Age (1 to 2)</p>
-                    </div>
-                    <div className="age-item">
-                      <i className="fas fa-child"></i>
-                      <p>Age (2 to 3)</p>
-                    </div>
-                    <div className="age-item">
-                      <i className="fas fa-user"></i>
-                      <p>Age (3 to 4)</p>
-                    </div>
-                    <div className="age-item">
-                      <i className="fas fa-user-graduate"></i>
-                      <p>Age (5 to 6)</p>
-                    </div>
+                    <p>Age (1 to 2)</p>
+                    <p>Age (2 to 3)</p>
+                    <p>Age (3 to 4)</p>
+                    <p>Age (5 to 6)</p>
                   </div>
 
-                  {/* Other Links */}
-                  <div className="menu-section others">
-                    <div className="menu-link">
-                      <i className="fas fa-briefcase"></i>
-                      <p>Corporate Orders</p>
-                    </div>
-                    <div className="menu-link">
-                      <i className="fas fa-gift"></i>
-                      <p>Gift Cards</p>
-                    </div>
+                  <div className="menu-section">
+                    <p>Corporate Orders</p>
+                    <p>Gift Cards</p>
                   </div>
 
-                  {/* 📧 Contact Section */}
                   <div className="menu-section contact">
                     <h4>Get in Touch</h4>
-                    <a href="mailto:care@dudeme.in" className="contact-email">
+                    <a
+                      href="mailto:care@rm1codershub.com"
+                      className="contact-email"
+                    >
                       care@rm1codershub.com
                     </a>
                   </div>
@@ -443,8 +394,6 @@ const Navbar = () => {
           </div>
         </div>
       )}
-
-
     </>
   );
 };
