@@ -3,17 +3,16 @@ import "./Our_essiential.css";
 import { Link } from "react-router-dom";
 
 const categories = [
-  { id: 1, name: "Best Seller", image: require("../../assets/categories/bestseller.jpg"), url: "" },
-  { id: 2, name: "T-shirts", image: require("../../assets/categories/t_shirt.jpg"), url: "" },
-  { id: 3, name: "Oversized", image: require("../../assets/categories/oversized.jpg"), url: "" },
-  { id: 4, name: "Hoodies", image: require("../../assets/categories/hoodies.jpg"), url: "" },
-  { id: 5, name: "Full Sleeves", image: require("../../assets/categories/full_sleves.jpg"), url: "" },
-  { id: 6, name: "Polo", image: require("../../assets/categories/polo.jpg"), url: "" },
-  { id: 7, name: "Crop top", image: require("../../assets/categories/croptop.jpg"), url: "" },
-  { id: 8, name: "T-shirt Dress", image: require("../../assets/categories/t_shirt_dress.jpg"), url: "" },
-  { id: 9, name: "Solids", image: require("../../assets/categories/solids.jpg"), url: "" },
-  { id: 10, name: "Kids", image: require("../../assets/categories/kids.jpg"), url: "" }
-
+  { id: 1, name: "Best Seller", image: require("../../assets/categories/bestseller.jpg"), url: "/geek/hoodies" },
+  { id: 2, name: "T-shirts", image: require("../../assets/categories/t_shirt.jpg"), url: "/geek/tshirts" },
+  { id: 3, name: "Oversized", image: require("../../assets/categories/oversized.jpg"), url: "/anime/oversized" },
+  { id: 4, name: "Hoodies", image: require("../../assets/categories/hoodies.jpg"), url: "/anime/hoodies" },
+  { id: 5, name: "Full Sleeves", image: require("../../assets/categories/full_sleves.jpg"), url: "/sport/hoodies" },
+  { id: 6, name: "Polo", image: require("../../assets/categories/polo.jpg"), url: "/sport/oversized" },
+  { id: 7, name: "Crop Top", image: require("../../assets/categories/croptop.jpg"), url: "/geek/hoodies" },
+  { id: 8, name: "T-shirt Dress", image: require("../../assets/categories/t_shirt_dress.jpg"), url: "/anime/oversized" },
+  { id: 9, name: "Solids", image: require("../../assets/categories/solids.jpg"), url: "/geek/tshirts" },
+  { id: 10, name: "Kids", image: require("../../assets/categories/kids.jpg"), url: "/sport/hoodies" }
 ];
 
 const OurEssential = () => {

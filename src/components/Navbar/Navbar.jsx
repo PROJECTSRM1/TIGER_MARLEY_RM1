@@ -1,6 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import { Search, User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import "./Navbar.css";
+
+export const CartContext = createContext();
 
 const Navbar = () => {
   const [isSearchOpen, setIsSearchOpen] = useState(false);
@@ -13,8 +15,9 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeTab, setActiveTab] = useState("Men");
 
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
 
-  // 🧩 Category-based product data
   const productsData = {
     Combo: [
       { id: 1, title: "Pack of 2 Akatsuki Black & White Anime Combo", price: 950, oldPrice: 2199, image: "/assets/search_icon_images/search1.jpg" },
@@ -69,8 +72,12 @@ const Navbar = () => {
     setPassword("");
   };
 
+  const removeFromCart = (id) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+  };
+
   return (
-    <>
+    <CartContext.Provider value={{ cartItems, setCartItems, setIsCartOpen }}>
       <header className="navbar">
         <div className="logo">
           <h1>
@@ -96,14 +103,50 @@ const Navbar = () => {
             <Heart className="icon" />
             <span className="badge">0</span>
           </div>
-          <div className="icon-badge">
-            <ShoppingCart className="icon" />
-            <span className="badge">2</span>
-          </div>
-          <Menu className="icon" onClick={() => setIsMenuOpen(true)} />
 
+          <div className="icon-badge" onClick={() => setIsCartOpen(true)}>
+            <ShoppingCart className="icon" />
+            <span className="badge">{cartItems.length}</span>
+          </div>
+
+          <Menu className="icon" onClick={() => setIsMenuOpen(true)} />
         </div>
       </header>
+
+      {isCartOpen && (
+        <div className="cart-overlay" onClick={() => setIsCartOpen(false)}>
+          <div className="cart-drawer" onClick={(e) => e.stopPropagation()}>
+            <div className="cart-header">
+              <h3>Your Cart</h3>
+              <X className="close-icon" onClick={() => setIsCartOpen(false)} />
+            </div>
+
+            {cartItems.length === 0 ? (
+              <p className="empty-cart">Your cart is empty.</p>
+            ) : (
+              <div className="cart-items">
+                {cartItems.map((item) => (
+                  <div className="cart-item" key={item.id}>
+                    <img src={item.image} alt={item.title} />
+                    <div>
+                      <h4>{item.title}</h4>
+                      <p>₹{item.price}</p>
+                    </div>
+                    <button
+                      className="remove-btn"
+                      onClick={() => removeFromCart(item.id)}
+                    >
+                      Remove
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+
 
       {isSearchOpen && (
         <div className="search-overlay" onClick={() => setIsSearchOpen(false)}>
@@ -200,7 +243,7 @@ const Navbar = () => {
                 onChange={(e) => setPassword(e.target.value)}
               />
 
-              <a href="#" className="forgot-password">
+              <a href="/" className="forgot-password">
                 Forgot your password?
               </a>
 
@@ -208,7 +251,7 @@ const Navbar = () => {
                 Sign In
               </button>
 
-              <a href="#" className="new-account">
+              <a href="/" className="new-account">
                 New customer? Create your account
               </a>
             </form>
@@ -225,7 +268,7 @@ const Navbar = () => {
             </div>
 
             <div className="menu-login">
-              <a href="#" onClick={() => setIsLoginOpen(true)}>
+              <a href="/" onClick={() => setIsLoginOpen(true)}>
                 Login / Register
               </a>
             </div>
@@ -417,8 +460,7 @@ const Navbar = () => {
         </div>
       )}
 
-
-    </>
+    </CartContext.Provider>
   );
 };
 

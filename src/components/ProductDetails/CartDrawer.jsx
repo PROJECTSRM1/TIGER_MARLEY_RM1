@@ -15,6 +15,7 @@ function CartDrawer({ isOpen, onClose, cartItems }) {
   return (
     <div className="cart-overlay" onClick={onClose}>
       <div className="cart-drawer" onClick={(e) => e.stopPropagation()}>
+        {/* Header */}
         <div className="cart-header">
           <h3>Your Cart</h3>
           <button className="close-btn" onClick={onClose}>
@@ -22,6 +23,7 @@ function CartDrawer({ isOpen, onClose, cartItems }) {
           </button>
         </div>
 
+        {/* Cart Items */}
         <div className="cart-items">
           {cartItems.map((item, index) => (
             <div className="cart-item" key={index}>
@@ -45,10 +47,15 @@ function CartDrawer({ isOpen, onClose, cartItems }) {
           ))}
         </div>
 
+        {/* Suggestions Section */}
         <div className="suggestions">
           <h4>You may also like</h4>
           <div className="suggestion-item">
-            <img src="/assets/sample1.jpg" alt="suggestion" />
+            {/* ✅ Using require() for image */}
+            <img
+              src={require("../../assets/sample1.jpg")}
+              alt="suggestion"
+            />
             <div>
               <p>Pikachu x Sasuke Unisex Tee</p>
               <span className="old-price">₹1,199</span>
@@ -57,6 +64,7 @@ function CartDrawer({ isOpen, onClose, cartItems }) {
           </div>
         </div>
 
+        {/* Checkout Section */}
         <div className="checkout-section">
           <div className="coupon-banner">
             <p>Checkout now to claim your coupon</p>

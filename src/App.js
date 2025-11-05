@@ -11,25 +11,29 @@ import Football from "./components/football/football";
 import Motorsports from "./components/football/motorsports";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import CheckoutPopup from "./components/ProductDetails/CheckoutPop";
+import ProductCategories from "./components/ProductCategories/ProductCategories";
 
 function App() {
   return (
     <Router>
-    
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/geek/tshirts" element={<GeekTshirts />} />
         <Route path="/geek/hoodies" element={<GeekHoodies />} />
-         <Route path="/anime/oversized" element={<AnimeOversized />} />
-          <Route path="/anime/hoodies" element={<AnimeHoodies />} />
-          <Route path="/anime/hoodie" element={<AnimeHoodies />} />
-           <Route path="/sport/oversized" element={<SportOversized />} />
-            <Route path="/sport/hoodies" element={<SportHoodies/>} />
-            <Route path="football/dresses" element={<Football/>}/>
-            <Route path="/motorsports" element={<Motorsports/>}/>
-            <Route path="/product/:id" element={<ProductDetails />} />
-           
-            <Route path="/checkout" element={<CheckoutPopup />} />
+        <Route path="/anime/oversized" element={<AnimeOversized />} />
+        <Route path="/anime/hoodies" element={<AnimeHoodies />} />
+        <Route path="/anime/hoodie" element={<AnimeHoodies />} />
+        <Route path="/sport/oversized" element={<SportOversized />} />
+        <Route path="/sport/hoodies" element={<SportHoodies />} />
+        <Route path="football/dresses" element={<Football />} />
+        <Route path="/motorsports" element={<Motorsports />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+
+        <Route path="/checkout" element={<CheckoutPopup />} />
+        <Route path="/geek/:category" element={<ProductCategories />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+
 
       </Routes>
     </Router>

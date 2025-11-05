@@ -86,19 +86,82 @@
   border-radius: 4px;
 }
 
+/* ==============================
+   You May Also Like Section
+   ============================== */
 .suggestions {
-  background: #f9f9f9;
-  padding: 15px;
+  background: #fff;
+  padding: 12px;
   border-radius: 10px;
   margin-top: 20px;
+  border: 1px solid #eee;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.suggestions h4 {
+  text-align: center;
+  font-size: 14px;
+  color: #444;
+  font-weight: 600;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #f0f0f0;
+  padding-bottom: 6px;
 }
 
 .suggestion-item {
   display: flex;
   align-items: center;
   gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.suggestion-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.suggestion-item img {
+  width: 55px;
+  height: 55px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.suggestion-details h5 {
+  margin: 0;
+  font-size: 13px;
+  color: #222;
+  font-weight: 500;
+  line-height: 1.2;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 140px;
+}
+
+.suggestion-prices {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.suggestion-old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 12px;
+}
+
+.suggestion-new-price {
+  color: #e30613;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ==============================
+   Checkout Section
+   ============================== */
 .checkout-section {
   position: sticky;
   bottom: 0;

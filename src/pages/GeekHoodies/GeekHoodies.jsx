@@ -1,11 +1,14 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { geekHoodies } from "../../data/products";
 
 const GeekHoodies = () => {
   const [filterOpen, setFilterOpen] = useState(false);
   const [filter, setFilter] = useState("all");
   const [sort, setSort] = useState("az");
+  const navigate = useNavigate();
 
+  // === Filter Logic ===
   const filteredProducts = geekHoodies.filter((product) => {
     switch (filter) {
       case "under1000":
@@ -34,6 +37,18 @@ const GeekHoodies = () => {
         return 0;
     }
   });
+
+  // ✅ Navigation Handler (Normalize data)
+  const handleNavigate = (product) => {
+    const normalizedProduct = {
+      ...product,
+      oldPrice: product.oldPrice || `₹${parseInt(product.price) + 200}`,
+      newPrice: product.newPrice || `₹${product.price}`,
+      name: product.title || product.name,
+      image: product.image || "",
+    };
+    navigate(`/product/${product.id}`, { state: normalizedProduct });
+  };
 
   return (
     <div style={{ textAlign: "center", padding: "60px" }}>
@@ -92,151 +107,111 @@ const GeekHoodies = () => {
 
       {/* === Sidebar Filter Drawer === */}
       {filterOpen && (
-        <div
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            height: "100%",
-            width: "320px",
-            backgroundColor: "#fff",
-            boxShadow: "2px 0 15px rgba(0,0,0,0.3)",
-            padding: "20px",
-            zIndex: 200,
-            overflowY: "auto",
-          }}
-        >
-          <div style={{ display: "flex", justifyContent: "space-between" }}>
-            <h2 style={{ color: "#af3828" }}>Filter Options</h2>
+        <>
+          <div
+            style={{
+              position: "fixed",
+              top: 0,
+              left: 0,
+              height: "100%",
+              width: "320px",
+              backgroundColor: "#fff",
+              boxShadow: "2px 0 15px rgba(0,0,0,0.3)",
+              padding: "20px",
+              zIndex: 200,
+              overflowY: "auto",
+            }}
+          >
+            <div style={{ display: "flex", justifyContent: "space-between" }}>
+              <h2 style={{ color: "#af3828" }}>Filter Options</h2>
+              <button
+                onClick={() => setFilterOpen(false)}
+                style={{
+                  background: "none",
+                  border: "none",
+                  fontSize: "20px",
+                  cursor: "pointer",
+                  color: "#333",
+                }}
+              >
+                ✖
+              </button>
+            </div>
+
+            {/* === Price Filter === */}
+            <h3 style={{ textAlign: "left", marginTop: "30px" }}>Price</h3>
+            <ul style={{ textAlign: "left", listStyle: "none", padding: 0 }}>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="price"
+                    value="under1000"
+                    checked={filter === "under1000"}
+                    onChange={(e) => setFilter(e.target.value)}
+                  />{" "}
+                  ₹0 — ₹999
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="price"
+                    value="1000to1500"
+                    checked={filter === "1000to1500"}
+                    onChange={(e) => setFilter(e.target.value)}
+                  />{" "}
+                  ₹1000 — ₹1500
+                </label>
+              </li>
+              <li>
+                <label>
+                  <input
+                    type="radio"
+                    name="price"
+                    value="above1500"
+                    checked={filter === "above1500"}
+                    onChange={(e) => setFilter(e.target.value)}
+                  />{" "}
+                  ₹1500+
+                </label>
+              </li>
+            </ul>
+
             <button
               onClick={() => setFilterOpen(false)}
               style={{
-                background: "none",
+                marginTop: "30px",
+                backgroundColor: "#af3828",
+                color: "#fff",
                 border: "none",
-                fontSize: "20px",
+                padding: "12px 20px",
+                borderRadius: "6px",
                 cursor: "pointer",
-                color: "#333",
+                width: "100%",
               }}
             >
-              ✖
+              Apply Filters
             </button>
           </div>
 
-          {/* === Price Filter === */}
-          <h3 style={{ textAlign: "left", marginTop: "30px" }}>Price</h3>
-          <ul style={{ textAlign: "left", listStyle: "none", padding: 0 }}>
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  name="price"
-                  value="under1000"
-                  checked={filter === "under1000"}
-                  onChange={(e) => setFilter(e.target.value)}
-                />{" "}
-                ₹0 — ₹999
-              </label>
-            </li>
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  name="price"
-                  value="1000to1500"
-                  checked={filter === "1000to1500"}
-                  onChange={(e) => setFilter(e.target.value)}
-                />{" "}
-                ₹1000 — ₹1500
-              </label>
-            </li>
-            <li>
-              <label>
-                <input
-                  type="radio"
-                  name="price"
-                  value="above1500"
-                  checked={filter === "above1500"}
-                  onChange={(e) => setFilter(e.target.value)}
-                />{" "}
-                ₹1500+
-              </label>
-            </li>
-          </ul>
-
-          <h3 style={{ textAlign: "left", marginTop: "30px" }}>Product Type</h3>
-          <p style={{ textAlign: "left" }}>Hoodies (50)</p>
-
-          <h3 style={{ textAlign: "left", marginTop: "30px" }}>Color</h3>
-          <ul style={{ textAlign: "left", listStyle: "none", padding: 0 }}>
-            {["Black", "Charcoal Melange", "Maroon", "Olive Green"].map(
-              (color, i) => (
-                <li key={i}>
-                  <label>
-                    <input type="checkbox" /> {color}
-                  </label>
-                </li>
-              )
-            )}
-          </ul>
-
-          <h3 style={{ textAlign: "left", marginTop: "30px" }}>Size</h3>
-          <ul style={{ textAlign: "left", listStyle: "none", padding: 0 }}>
-            {["S", "M", "L", "XL", "2XL"].map((size, i) => (
-              <li key={i}>
-                <label>
-                  <input type="checkbox" /> {size}
-                </label>
-              </li>
-            ))}
-          </ul>
-
-          <h3 style={{ textAlign: "left", marginTop: "30px" }}>Availability</h3>
-          <ul style={{ textAlign: "left", listStyle: "none", padding: 0 }}>
-            <li>
-              <label>
-                <input type="checkbox" /> In stock (49)
-              </label>
-            </li>
-            <li>
-              <label>
-                <input type="checkbox" /> Out of stock (32)
-              </label>
-            </li>
-          </ul>
-
-          <button
+          <div
             onClick={() => setFilterOpen(false)}
             style={{
-              marginTop: "30px",
-              backgroundColor: "#af3828",
-              color: "#fff",
-              border: "none",
-              padding: "12px 20px",
-              borderRadius: "6px",
-              cursor: "pointer",
+              position: "fixed",
+              top: 0,
+              left: 0,
               width: "100%",
+              height: "100%",
+              backgroundColor: "rgba(0,0,0,0.3)",
+              zIndex: 100,
             }}
-          >
-            Apply Filters
-          </button>
-        </div>
+          ></div>
+        </>
       )}
 
-      {filterOpen && (
-        <div
-          onClick={() => setFilterOpen(false)}
-          style={{
-            position: "fixed",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            zIndex: 100,
-          }}
-        ></div>
-      )}
-
+      {/* === Product Grid === */}
       <div
         style={{
           display: "grid",
@@ -251,6 +226,7 @@ const GeekHoodies = () => {
         {sortedProducts.map((product) => (
           <div
             key={product.id}
+            onClick={() => handleNavigate(product)} // ✅ Navigate on card click
             style={{
               backgroundColor: "#fff",
               borderRadius: "10px",
@@ -259,6 +235,7 @@ const GeekHoodies = () => {
               maxWidth: "250px",
               padding: "15px",
               textAlign: "center",
+              cursor: "pointer",
               transition: "transform 0.3s ease",
             }}
             onMouseEnter={(e) =>
@@ -278,13 +255,19 @@ const GeekHoodies = () => {
                 height: "250px",
               }}
             />
+
             <h3 style={{ marginTop: "10px", fontSize: "16px" }}>
               {product.title}
             </h3>
             <p style={{ fontWeight: "bold", color: "#af3828" }}>
               ₹{product.price}
             </p>
+
             <button
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent card click
+                handleNavigate(product); // ✅ Navigate on button click
+              }}
               style={{
                 backgroundColor: "#af3828",
                 color: "#fff",

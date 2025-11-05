@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,3 +73,6 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # TIGER_MARLEY_DUDE
 >>>>>>> origin/main
+=======
+# TIGER_MARLEY_DUDE_2
+>>>>>>> e9a5f3cb3d62c7bef55daa51c428e9f4754ef2bd
