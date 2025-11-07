@@ -11,8 +11,6 @@ const AnimeOversized = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "40px" }}>
-      <h1>Anime Oversized Tees 👕</h1>
-      <p>Check out our oversized tees inspired by popular anime!</p>
 
       <div
         style={{

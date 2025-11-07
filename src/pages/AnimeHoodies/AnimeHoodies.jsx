@@ -18,8 +18,6 @@ const AnimeHoodies = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "40px" }}>
-      <h1>Anime Hoodies 🧥</h1>
-      <p>Stay cozy with our anime-inspired hoodies!</p>
 
       <div
         style={{

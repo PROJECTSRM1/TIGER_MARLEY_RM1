@@ -1,0 +1,122 @@
+.hoodies-container {
+  padding: 40px 20px;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  background-color: #fff;
+}
+
+/* Header */
+.hoodies-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1150px;
+  margin: 0 auto 30px;
+  gap: 10px;
+}
+
+.filter-btn {
+  background: none;
+  border: none;
+  color: #444;
+  font-weight: 500;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sort-section select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background: #fff;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Grid */
+.hoodies-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 25px;
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+/* Product Card */
+.hoodie-card {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  cursor: pointer;
+}
+
+.hoodie-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.hoodie-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.hoodie-card h3 {
+  font-size: 15px;
+  font-weight: 600;
+  margin: 10px 0 6px;
+  color: #222;
+}
+
+.price {
+  font-size: 14px;
+  color: #af3828;
+  font-weight: 600;
+}
+
+.price .old {
+  color: #888;
+  text-decoration: line-through;
+  margin-right: 5px;
+}
+
+.hoodie-card button {
+  background: #af3828;
+  color: #fff;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background 0.25s;
+}
+
+.hoodie-card button:hover {
+  background: #922f21;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .hoodies-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .hoodies-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .hoodies-grid {
+    grid-template-columns: 1fr;
+  }
+}
