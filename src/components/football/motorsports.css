@@ -1,11 +1,9 @@
-/* 🌟 Page container */
 .motorsports-page {
   padding: 40px 60px;
   font-family: "Poppins", sans-serif;
   background-color: #fff;
 }
 
-/* 🏁 Category section (Half Sleeve, Oversized, Hoodie) */
 .category-section {
   display: flex;
   justify-content: center;
@@ -39,7 +37,6 @@
   transform: scale(1.07);
 }
 
-/* 🎛️ Filter dropdown */
 .filter-section {
   display: flex;
   justify-content: flex-end;
@@ -63,14 +60,12 @@
   cursor: pointer;
 }
 
-/* 🛍️ Product Grid */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 25px;
 }
 
-/* 🧢 Product Card */
 .product-card {
   border: 1px solid #eee;
   border-radius: 10px;
@@ -115,9 +110,6 @@
   font-weight: 600;
 }
 
-/* 📱 Responsive Design */
-
-/* Medium screens (tablets) */
 @media (max-width: 1024px) {
   .product-grid {
     grid-template-columns: repeat(3, 1fr);
@@ -127,8 +119,6 @@
     padding: 30px 40px;
   }
 }
-
-/* Small screens (mobile) */
 @media (max-width: 768px) {
   .product-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -148,7 +138,6 @@
   }
 }
 
-/* Very small screens (phones) */
 @media (max-width: 480px) {
   .product-grid {
     grid-template-columns: repeat(1, 1fr);

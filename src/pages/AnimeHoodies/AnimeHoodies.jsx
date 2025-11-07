@@ -5,7 +5,6 @@ import { animeHoodies } from "../../data/products";
 const AnimeHoodies = () => {
   const navigate = useNavigate();
 
-  // ✅ Normalize data and navigate
   const handleNavigate = (product) => {
     const normalizedProduct = {
       ...product,
@@ -34,7 +33,7 @@ const AnimeHoodies = () => {
         {animeHoodies.map((product) => (
           <div
             key={product.id}
-            onClick={() => handleNavigate(product)} // ✅ Click anywhere on card
+            onClick={() => handleNavigate(product)} 
             style={{
               background: "#fff",
               padding: "20px",
@@ -52,7 +51,6 @@ const AnimeHoodies = () => {
               (e.currentTarget.style.transform = "scale(1)")
             }
           >
-            {/* 🖼 Image navigates too */}
             <img
               src={product.image}
               alt={product.title}
@@ -62,10 +60,9 @@ const AnimeHoodies = () => {
             <h3 style={{ margin: "15px 0 5px" }}>{product.title}</h3>
             <p style={{ fontWeight: "bold" }}>₹{product.price}</p>
 
-            {/* 🛒 Add to Cart also navigates */}
             <button
               onClick={(e) => {
-                e.stopPropagation(); // prevent double click trigger
+                e.stopPropagation(); 
                 handleNavigate(product);
               }}
               style={{

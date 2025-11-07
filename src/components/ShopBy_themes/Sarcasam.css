@@ -1,0 +1,72 @@
+.sarcasam-container {
+  background-color: #fff;
+  padding: 40px 60px;
+  text-align: center;
+}
+
+.sarcasam-banner img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  margin-bottom: 50px;
+}
+
+.sarcasam-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  justify-content: center;
+  justify-items: center;
+  gap: 30px;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.sarcasam-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sarcasam-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.sarcasam-img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.sarcasam-title {
+  margin: 15px 0 5px;
+  font-size: 16px;
+  color: #222;
+  font-weight: 500;
+}
+
+.sarcasam-price {
+  color: #e63946;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+@media (max-width: 992px) {
+  .sarcasam-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .sarcasam-grid {
+    grid-template-columns: 1fr;
+  }
+  .sarcasam-container {
+    padding: 20px;
+  }
+}

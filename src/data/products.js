@@ -1,4 +1,3 @@
-// Geek T-Shirts
 export const geekTshirts = [
   { id: 1, title: "Declare Variables not War Half Sleeve Unisex T-Shirt", image: "/assets/reddevil.jpg", price: 599, },
   { id: 2, title: "If It Works Don't Touch Half Sleeve Unisex T-Shirt", image: "/assets/1st-Rule-BLACK.webp", price: 1199 },
@@ -18,7 +17,6 @@ export const geekTshirts = [
 
 ];  
 
-// Geek Hoodies
 export const geekHoodies = [
   {
     id: 1,
@@ -143,7 +141,6 @@ export const geekHoodies = [
 ];
 
 
-// Anime Oversized
 export const animeOversized = [
   { id: 1, title: "Akatsuki Black Unisex Oversized T-Shirt", image:"/assets/228.png", price: 1299 },
   { id: 2, title: "Sharingan Navy Unisex Oversized T-Shirt", image: "/assets/29.png", price: 599 },
@@ -159,7 +156,6 @@ export const animeOversized = [
 
 ];
 
-// Anime Hoodies
 export const animeHoodies = [
   { id: 1, title: "Solo Leveling Betrayed Anime Hoodie", image: "/assets/Solo Leveling Betrayed Anime Hoodie.png", price: 1599 },
   { id: 2, title: "Asta Black Clover Anime Hoodie", image: "/assets/Asta Black Clover Anime Hoodie.png", price: 1699 },
@@ -191,7 +187,6 @@ export const sportOversized = [
 
 ];
 
-// Sport Hoodies
 export const sportHoodies = [
   { id: 1, title: "Ajith Kumar Racing Motorsport Fan Hoodie", image: "/assets/Ajith Kumar Racing Motorsport Fan Hoodie.png", price: 999 },
   { id: 2, title: "Ajith Kumar Car Racing Motorsport Hoodie", image: "/assets/Ajith Kumar Car Racing Motorsport Hoodie.jpg", price: 1099 },

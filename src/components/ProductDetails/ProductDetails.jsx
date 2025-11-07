@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import CartDrawer from "./CartDrawer"; // 🛒 Import the Cart Drawer component
+import CartDrawer from "./CartDrawer";
+import { useWishlist } from "../../context/WishlistContext";
 import "./ProductDetails.css";
 
 const ProductDetails = () => {
@@ -13,6 +14,10 @@ const ProductDetails = () => {
   const [mainMedia, setMainMedia] = useState(product?.image || "");
   const [activeTab, setActiveTab] = useState("description");
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  // ❤️ Wishlist Context
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  const isWishlisted = isInWishlist(product?.name);
 
   if (!product) {
     return (
@@ -47,11 +52,15 @@ const ProductDetails = () => {
 
   return (
     <div className="product-detail-page">
+      {/* Breadcrumb */}
       <div className="breadcrumb">
         <span onClick={() => navigate("/")}>Home</span> ›{" "}
         <span>Limited Editions</span> › <b>{product.name}</b>
       </div>
+
+      {/* Main Container */}
       <div className="product-detail-container">
+        {/* ===== Left Side: Images ===== */}
         <div className="media-section">
           <div className="thumbnail-list">
             {thumbnails.map((item, idx) => (
@@ -70,8 +79,10 @@ const ProductDetails = () => {
           </div>
         </div>
 
+        {/* ===== Right Side: Product Info ===== */}
         <div className="info-section">
           <h2>{product.name}</h2>
+
           <div className="rating">
             ⭐⭐⭐⭐☆ <span>15 Reviews</span>
           </div>
@@ -81,6 +92,7 @@ const ProductDetails = () => {
             <span className="new-price">{product.newPrice}</span>
           </div>
 
+          {/* Size Selector */}
           <div className="size-section">
             <p>SIZE: {size}</p>
             <div className="sizes">
@@ -96,11 +108,13 @@ const ProductDetails = () => {
             </div>
           </div>
 
+          {/* Color Section */}
           <div className="color-section">
             <p>COLOR: WHITE</p>
             <div className="color white"></div>
           </div>
 
+          {/* Cart + Wishlist Buttons */}
           <div className="cart-actions">
             <div className="quantity">
               <button onClick={() => setQuantity((q) => Math.max(1, q - 1))}>
@@ -113,8 +127,22 @@ const ProductDetails = () => {
             <button className="add-to-cart" onClick={handleAddToCart}>
               ADD TO CART
             </button>
+
+            {/* ❤️ Wishlist Icon */}
+            <span
+              className={`wishlist-icon ${isWishlisted ? "active" : ""}`}
+              onClick={() =>
+                isWishlisted
+                  ? removeFromWishlist(product.name)
+                  : addToWishlist(product)
+              }
+            >
+              {isWishlisted ? "❤️" : "🤍"}
+            </span>
+
           </div>
 
+          {/* Offer Section */}
           <p className="offer">
             Pay Online & Get Flat <b>15% Off.</b> Use Code: <b>BUY2</b> Faster
             dispatch!
@@ -126,6 +154,7 @@ const ProductDetails = () => {
         </div>
       </div>
 
+      {/* ===== Footer Tabs Section ===== */}
       <div className="footer-section">
         <div className="footer-tabs">
           <button
@@ -146,8 +175,8 @@ const ProductDetails = () => {
           <div className="footer-content">
             <h4>Printed Hoodies – Not Embroidered</h4>
             <p>
-              <b>Wash Note:</b> Machine wash cold, use mild detergent, dry in the
-              shade. Do not iron directly or scrub on print.
+              <b>Wash Note:</b> Machine wash cold, use mild detergent, dry in
+              the shade. Do not iron directly or scrub on print.
             </p>
             <p>
               <b>Standard Sizing:</b> U.S. and EU standards; size variation ±0.5".
@@ -179,6 +208,7 @@ const ProductDetails = () => {
         )}
       </div>
 
+      {/* 🛒 Cart Drawer */}
       <CartDrawer
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}

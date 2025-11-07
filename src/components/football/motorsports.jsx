@@ -24,21 +24,17 @@ import motorsport14 from "../../assets/motorsportsimages/motorsport14.jpg";
 const Motorsports = () => {
   const navigate = useNavigate();
 
-  // 🏎️ Categories
   const categories = [
     { id: 1, name: "Half Sleeve", image: halfsleeves },
     { id: 2, name: "Oversized", image: oversized },
     { id: 3, name: "Hoodie", image: hoodies },
   ];
 
-  // 🔗 Navigate to specific category page
   const handleCategoryClick = (item) => {
     const path = `/anime/${item.name.toLowerCase().replace(/\s+/g, "")}`;
     navigate(path, { state: item });
   };
 
-
-  // 🛍️ Product List (✅ Fixed ₹ symbol and strings)
   const allProducts = [
     { id: 1, name: "Best Seller", image: motorsport1, oldPrice: "₹1800", newPrice: "₹899" },
     { id: 2, name: "McLaren Team Hoodie", image: motorsport2, oldPrice: "₹1800", newPrice: "₹899" },
@@ -61,7 +57,6 @@ const Motorsports = () => {
   const [sortOption, setSortOption] = useState("Featured");
   const [products, setProducts] = useState(allProducts);
 
-  // ⚙️ Sorting logic
   const handleSortChange = (option) => {
     setSortOption(option);
     let sorted = [...allProducts];
@@ -79,14 +74,12 @@ const Motorsports = () => {
     setProducts(sorted);
   };
 
-  // 🧭 Navigate to product details
   const handleProductClick = (item) => {
     navigate(`/product/${item.id}`, { state: item });
   };
 
   return (
     <div className="motorsports-page">
-      {/* 🏎️ Category Section */}
       <div className="category-section">
         {categories.map((item) => (
           <div
@@ -100,7 +93,6 @@ const Motorsports = () => {
         ))}
       </div>
 
-      {/* ⚙️ Filter Section */}
       <div className="filter-section">
         <label>Filter: </label>
         <select value={sortOption} onChange={(e) => handleSortChange(e.target.value)}>
@@ -114,13 +106,12 @@ const Motorsports = () => {
         </select>
       </div>
 
-      {/* 🛍️ Product Grid */}
       <div className="product-grid">
         {products.map((item) => (
           <div
             key={item.id}
             className="product-card"
-            onClick={() => handleProductClick(item)} // ✅ Navigate on click
+            onClick={() => handleProductClick(item)} 
           >
             <img src={item.image} alt={item.name} />
             <h4>{item.name}</h4>

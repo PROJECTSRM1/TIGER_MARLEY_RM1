@@ -1,7 +1,6 @@
-/* === Official Merchandise === */
 .official-edition-container {
   text-align: center;
-  padding: 3px 20px 40px; /* 🔹 Reduced top gap */
+  padding: 3px 20px 40px; 
   background-color: #fff;
 }
 
@@ -12,7 +11,6 @@
   margin-bottom: 8px;
 }
 
-/* 🔹 Removed red underline for clean header look */
 .red-underline {
   display: none;
 }
@@ -42,7 +40,6 @@
   transform: scale(1.05);
 }
 
-/* 🔹 Uniform image & button sizes */
 .merch-image {
   width: 280px;
   height: 340px;
@@ -51,7 +48,6 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* === Clearance Red Banner === */
 .clearance-section {
   background-color: #c00;
   color: #fff;
@@ -85,7 +81,7 @@
   border: none;
   color: white;
   padding: 8px 18px;
-  text-decoration: none !important; /* ✅ no underline */
+  text-decoration: none !important; 
   border-radius: 5px;
   cursor: pointer;
   font-weight: 600;
@@ -100,7 +96,6 @@
   background-color: #111;
 }
 
-/* === Promo Wrapper (Separate from Red Section) === */
 .promo-wrapper {
   background-color: #fff;
   padding: 40px 0;
@@ -144,7 +139,7 @@
 .promo-btn {
   background-color: #e30613;
   border: none;
-  text-decoration: none !important; /* ✅ no underline */
+  text-decoration: none !important; 
   color: #fff;
   padding: 10px 18px;
   border-radius: 5px;

@@ -1,0 +1,229 @@
+/* Popup Background (Blur + Fade) */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.25);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+/* Card Container */
+.popup-card {
+  background: white;
+  width: 380px;
+  padding: 32px 28px;
+  border-radius: 28px;
+  text-align: center;
+  box-shadow: 0 10px 38px rgba(0,0,0,0.14);
+  position: relative;
+  animation: fadeIn 0.25s ease;
+}
+
+/* Close Button */
+.close-icon {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  background: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* Purple Shop Logo Text */
+.shop-logo {
+  color: #5a29ff;
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.popup-heading {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.popup-email-box {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  background: #f3f3ff;
+  border-radius: 12px;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
+
+.user-icon {
+  font-size: 18px;
+}
+ .option-box {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  border: 1px solid #ddd;
+  padding: 12px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-bottom: 18px;
+  background: #fafafa;
+  transition: 0.2s;
+}
+.option-box:hover {
+  background: #f0f0ff;
+  border-color: #5a29ff;
+}
+.radio-dot {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #666;
+  border-radius: 50%;
+  transition: 0.25s;
+}
+.radio-dot.active {
+  border-color: #5a29ff;
+  background: #5a29ff;
+}
+/* Confirm Button */
+.confirm-btn {
+  width: 100%;
+  background: #5a29ff;
+  color: white;
+  padding: 14px 0;
+  border-radius: 12px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.confirm-btn:hover {
+  background: #4a20d6;
+}
+
+/* Footer Text */
+.popup-info {
+  font-size: 13px;
+  color: #777;
+  margin-top: 18px;
+}
+
+.popup-info a {
+  color: #5a29ff;
+  text-decoration: none;
+}
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+
+/* Fade Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.login-container {
+  max-width: 420px;
+  margin: 60px auto;
+  text-align: center;
+  font-family: "Inter", sans-serif;
+}
+
+.login-title {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.login-subtitle {
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.shop-login-btn {
+  width: 100%;
+  background: #5a29ff;
+  border: none;
+  padding: 14px 0;
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.shop-login-btn:hover {
+  background: #4a20d6;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+  margin: 0 12px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background: #f6f8ff;
+  font-size: 15px;
+  margin-bottom: 12px;
+  transition: 0.25s;
+}
+
+.input-field:focus {
+  border-color: #5a29ff;
+  background: #fff;
+  outline: none;
+  box-shadow: 0 0 4px rgba(90, 41, 255, 0.2);
+}
+
+.continue-btn {
+  width: 100%;
+  background: #000;
+  color: white;
+  padding: 14px 0;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: 0.25s ease;
+}
+
+.continue-btn:hover {
+  background: #222;
+}
+
+.error-text {
+  font-size: 13px;
+  color: red;
+  margin-bottom: 6px;
+}

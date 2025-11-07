@@ -1,21 +1,22 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./CartDrawer.css";
+import { staticCartData } from "../../data/staticCartData";
 
-function CartDrawer({ isOpen, onClose, cartItems }) {
+function CartDrawer({ isOpen, onClose }) {
   const navigate = useNavigate();
 
   if (!isOpen) return null;
 
-  const subtotal = cartItems.reduce(
-    (total, item) => total + item.price * item.qty,
+  const subtotal = staticCartData.reduce(
+    (total, item) => total + item.price,
     0
   );
 
   return (
     <div className="cart-overlay" onClick={onClose}>
       <div className="cart-drawer" onClick={(e) => e.stopPropagation()}>
-        {/* Header */}
+      
         <div className="cart-header">
           <h3>Your Cart</h3>
           <button className="close-btn" onClick={onClose}>
@@ -23,56 +24,28 @@ function CartDrawer({ isOpen, onClose, cartItems }) {
           </button>
         </div>
 
-        {/* Cart Items */}
         <div className="cart-items">
-          {cartItems.map((item, index) => (
-            <div className="cart-item" key={index}>
-              <img src={item.image} alt={item.name} />
-              <div className="cart-item-details">
-                <h4>{item.name}</h4>
-                <p>
-                  {item.size} / {item.color}
-                </p>
-                <div className="cart-item-actions">
-                  <span className="old-price">₹{item.oldPrice}</span>
+          {staticCartData.length === 0 ? (
+            <p>Your Cart is Empty</p>
+          ) : (
+            staticCartData.map((item, index) => (
+              <div className="cart-item" key={index}>
+                <img src={item.image} alt={item.title} />
+                <div className="cart-item-details">
+                  <h4>{item.title}</h4>
                   <span className="new-price">₹{item.price}</span>
-                  <div className="qty-control">
-                    <button>-</button>
-                    <span>{item.qty}</span>
-                    <button>+</button>
-                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))
+          )}
         </div>
 
-        {/* Suggestions Section */}
-        <div className="suggestions">
-          <h4>You may also like</h4>
-          <div className="suggestion-item">
-            {/* ✅ Using require() for image */}
-            <img
-              src={require("../../assets/sample1.jpg")}
-              alt="suggestion"
-            />
-            <div>
-              <p>Pikachu x Sasuke Unisex Tee</p>
-              <span className="old-price">₹1,199</span>
-              <span className="new-price">₹649</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Checkout Section */}
         <div className="checkout-section">
-          <div className="coupon-banner">
-            <p>Checkout now to claim your coupon</p>
-          </div>
           <div className="subtotal">
             <span>Subtotal:</span>
             <span>₹{subtotal}</span>
           </div>
+
           <p className="cart-meta">Safe Shipping | Secure Payments</p>
 
           <button
@@ -84,8 +57,7 @@ function CartDrawer({ isOpen, onClose, cartItems }) {
           >
             CHECK OUT
           </button>
-
-          <button className="viewcart-btn">VIEW CART</button>
+          <button className="viewcart-btn" onClick={()=>{onClose();navigate("/view-cart");}}>VIEW CART</button>
         </div>
       </div>
     </div>

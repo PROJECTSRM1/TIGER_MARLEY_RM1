@@ -36,7 +36,6 @@ const AnimeOversized = () => {
               cursor: "pointer",
             }}
           >
-            {/* Click on image to go to details */}
             <img
               src={product.image}
               alt={product.title}
@@ -46,7 +45,6 @@ const AnimeOversized = () => {
             <h3 style={{ margin: "15px 0 5px" }}>{product.title}</h3>
             <p style={{ fontWeight: "bold" }}>₹{product.price}</p>
 
-            {/* View Details Button */}
             <button
               style={{
                 marginTop: "10px",
@@ -61,8 +59,6 @@ const AnimeOversized = () => {
             >
               View Details
             </button>
-
-            {/* Add to Cart Button */}
             <button
               style={{
                 marginTop: "10px",

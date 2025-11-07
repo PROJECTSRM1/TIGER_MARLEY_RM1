@@ -32,7 +32,6 @@
   position: relative;
 }
 
-/* Product grid per slide */
 .arrival-grid {
   display: flex;
   gap: 20px;
@@ -42,7 +41,6 @@
   transition: transform 0.4s ease-in-out;
 }
 
-/* Card styling */
 .arrival-card {
   width: 220px;
   background: #fff;
@@ -85,7 +83,6 @@
   font-weight: bold;
 }
 
-/* Arrows */
 .arrow {
   background: none;
   border: none;
@@ -100,7 +97,6 @@
   cursor: not-allowed;
 }
 
-/* Responsive */
 @media (max-width: 1024px) {
   .arrival-card {
     width: 180px;

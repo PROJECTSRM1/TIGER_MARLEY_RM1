@@ -241,139 +241,212 @@
 /* ======================
    🔐 Login Drawer (Right Side)
    ====================== */
-
+/* ===============================
+   LOGIN OVERLAY
+=================================*/
 .login-overlay {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* dim background */
-  z-index: 999;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.55);
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-end; /* align drawer to right */
+  z-index: 2000;
+  animation: fadeIn 0.3s ease;
 }
 
+/* ===============================
+   LOGIN DRAWER (Right Side)
+=================================*/
 .login-drawer {
   background: #fff;
-  width: 360px;
+  width: 420px;
   height: 100vh;
-  box-shadow: -3px 0 8px rgba(0, 0, 0, 0.15);
-  animation: slideInLogin 0.3s ease forwards;
-  padding: 25px 30px;
+  border-radius: 0;
+  box-shadow: -4px 0 25px rgba(0, 0, 0, 0.2);
+  padding: 35px 30px;
+  position: relative;
   display: flex;
   flex-direction: column;
   overflow-y: auto;
+  animation: slideInRight 0.35s ease forwards;
 }
 
-@keyframes slideInLogin {
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-/* Header */
+/* ===============================
+   HEADER
+=================================*/
 .login-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
 }
 
 .login-header h3 {
-  font-size: 14px;
+  font-size: 22px;
   font-weight: 600;
   color: #222;
-  letter-spacing: 0.5px;
 }
 
-.login-header .close-icon {
+.close-icon {
   cursor: pointer;
-  color: #333;
-  width: 20px;
-  height: 20px;
+  font-size: 22px;
+  color: #666;
+  transition: 0.2s;
 }
 
-.login-header .close-icon:hover {
-  color: #b11111;
+.close-icon:hover {
+  color: #ff4d4f;
+  transform: rotate(90deg);
 }
 
-/* Form Styles */
+/* ===============================
+   FORM STYLING
+=================================*/
 .login-form {
   display: flex;
   flex-direction: column;
 }
 
 .login-form label {
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 600;
   color: #333;
-  font-weight: 500;
   margin-bottom: 5px;
 }
 
-.login-form label span {
+.login-form span {
   color: red;
 }
 
-.login-form input {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px 12px;
-  font-size: 14px;
+.input-field {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  border: 1.8px solid #ddd;
+  font-size: 15px;
+  transition: all 0.3s ease;
+}
+
+.input-field:focus {
+  border-color: #5b3df5;
+  box-shadow: 0 0 0 4px rgba(91, 61, 245, 0.1);
   outline: none;
-  margin-bottom: 15px;
 }
 
-.login-form input:focus {
-  border-color: #b11111;
-}
-
-/* Links */
-.forgot-password,
-.new-account {
-  font-size: 13px;
-  color: #333;
-  text-decoration: underline;
-  margin-bottom: 10px;
-  cursor: pointer;
-}
-
-.forgot-password:hover,
-.new-account:hover {
-  color: #b11111;
-}
-
-/* Button */
+/* ===============================
+   BUTTONS
+=================================*/
 .login-btn {
-  background: #111;
-  color: #fff;
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(90deg, #5b3df5, #7b5df7);
   border: none;
-  padding: 10px;
-  border-radius: 30px;
-  font-size: 14px;
-  font-weight: 500;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
   cursor: pointer;
-  margin: 10px 0 15px 0;
-  transition: background 0.3s ease;
+  margin-top: 5px;
+  transition: all 0.3s ease;
 }
 
 .login-btn:hover {
-  background: #000;
+  background: linear-gradient(90deg, #4a31cc, #6840e0);
+  transform: translateY(-2px);
 }
 
-/* Scrollbar */
-.login-drawer::-webkit-scrollbar {
-  width: 6px;
+.cancel-btn {
+  background: #f5f5f5;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: #555;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
-.login-drawer::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 10px;
+
+.cancel-btn:hover {
+  background: #e1e1e1;
 }
+
+/* ===============================
+   TEXT LINKS
+=================================*/
+.register-prompt {
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 20px;
+}
+
+.register-link {
+  color: #5b3df5;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+.forgot-password-link {
+  text-align: right;
+  font-size: 13px;
+  color: #5b3df5;
+  cursor: pointer;
+  margin-top: -5px;
+  margin-bottom: 15px;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+/* ===============================
+   ERROR & INFO
+=================================*/
+.error-message {
+  color: red;
+  font-size: 13px;
+  margin-top: -12px;
+  margin-bottom: 10px;
+}
+
+.forgot-password-info {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 15px;
+  line-height: 1.5;
+}
+
+/* ===============================
+   ANIMATIONS
+=================================*/
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
 /* ======================
    🍔 MENU DRAWER STYLES
    ====================== */
@@ -450,15 +523,18 @@
 }
 
 .menu-login a {
-  font-size: 13px;
-  color: #555;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  font-weight: bold;
+  color: #333;
   text-decoration: none;
-  font-weight: 500;
+  cursor: pointer;
 }
 
 .menu-login a:hover {
-  color: #b11111;
-  text-decoration: underline;
+  background-color: #f0f0f0;
+  border-radius: 5px;
 }
 
 /* Tabs */
@@ -489,6 +565,63 @@
 .menu-tabs button.active {
   color: #b11111;
   border-bottom: 3px solid #b11111;
+}
+
+.shop-signin-container {
+  max-width: 380px;
+  margin: auto;
+  padding: 30px;
+  text-align: center;
+}
+
+.shop-login-btn {
+  background: #5a28f0;
+  color: white;
+  border: none;
+  padding: 14px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.divider {
+  margin: 20px 0;
+  display: flex;
+  align-items: center;
+  color: #777;
+}
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #ddd;
+}
+.divider span {
+  margin: 0 10px;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.continue-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 12px;
+  border-radius: 6px;
+  background: #dedede;
+  color: #444;
+  border: none;
+  cursor: pointer;
+}
+.continue-btn:not(:disabled) {
+  background: #111;
+  color: white;
 }
 
 /* Content */
@@ -716,4 +849,37 @@
     width: 42px;
     height: 42px;
   }
+}
+.forgot-password-link {
+  color: #007bff;
+  cursor: pointer;
+  text-align: right;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.cancel-btn {
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #ccc;
+  color: #333;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background-color: #f2f2f2;
+}
+
+.forgot-password-info {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 15px;
+  line-height: 1.5;
 }

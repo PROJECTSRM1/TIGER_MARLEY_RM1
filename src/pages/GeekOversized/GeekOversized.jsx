@@ -4,8 +4,6 @@ import { animeOversized } from "../../data/products";
 
 const AnimeOversized = () => {
   const navigate = useNavigate();
-
-  // Helper: normalize product before sending to ProductDetails
   const handleNavigate = (product) => {
     const normalizedProduct = {
       ...product,

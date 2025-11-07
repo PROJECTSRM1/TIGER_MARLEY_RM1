@@ -8,7 +8,6 @@ const GeekHoodies = () => {
   const [sort, setSort] = useState("az");
   const navigate = useNavigate();
 
-  // === Filter Logic ===
   const filteredProducts = geekHoodies.filter((product) => {
     switch (filter) {
       case "under1000":
@@ -22,7 +21,6 @@ const GeekHoodies = () => {
     }
   });
 
-  // === Sort Logic ===
   const sortedProducts = [...filteredProducts].sort((a, b) => {
     switch (sort) {
       case "az":
@@ -38,7 +36,6 @@ const GeekHoodies = () => {
     }
   });
 
-  // ✅ Navigation Handler (Normalize data)
   const handleNavigate = (product) => {
     const normalizedProduct = {
       ...product,
@@ -55,7 +52,6 @@ const GeekHoodies = () => {
       <h1>Geek Hoodies 🧥</h1>
       <p>Explore our collection of geeky and coder-inspired hoodies!</p>
 
-      {/* === Filter + Sort Bar === */}
       <div
         style={{
           display: "flex",
@@ -68,7 +64,6 @@ const GeekHoodies = () => {
           gap: "20px",
         }}
       >
-        {/* Filter Button */}
         <button
           onClick={() => setFilterOpen(true)}
           style={{
@@ -84,7 +79,6 @@ const GeekHoodies = () => {
           🧩 Filter
         </button>
 
-        {/* Sort Dropdown */}
         <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
           <h3 style={{ margin: 0, color: "#333" }}>Sort By:</h3>
           <select
@@ -105,7 +99,6 @@ const GeekHoodies = () => {
         </div>
       </div>
 
-      {/* === Sidebar Filter Drawer === */}
       {filterOpen && (
         <>
           <div
@@ -138,7 +131,6 @@ const GeekHoodies = () => {
               </button>
             </div>
 
-            {/* === Price Filter === */}
             <h3 style={{ textAlign: "left", marginTop: "30px" }}>Price</h3>
             <ul style={{ textAlign: "left", listStyle: "none", padding: 0 }}>
               <li>
@@ -211,7 +203,6 @@ const GeekHoodies = () => {
         </>
       )}
 
-      {/* === Product Grid === */}
       <div
         style={{
           display: "grid",
@@ -226,7 +217,7 @@ const GeekHoodies = () => {
         {sortedProducts.map((product) => (
           <div
             key={product.id}
-            onClick={() => handleNavigate(product)} // ✅ Navigate on card click
+            onClick={() => handleNavigate(product)} 
             style={{
               backgroundColor: "#fff",
               borderRadius: "10px",
@@ -265,8 +256,8 @@ const GeekHoodies = () => {
 
             <button
               onClick={(e) => {
-                e.stopPropagation(); // Prevent card click
-                handleNavigate(product); // ✅ Navigate on button click
+                e.stopPropagation(); 
+                handleNavigate(product);
               }}
               style={{
                 backgroundColor: "#af3828",

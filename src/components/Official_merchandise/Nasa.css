@@ -1,0 +1,80 @@
+.nasa-page {
+  padding: 20px;
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+}
+
+.nasa-banner {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.nasa-filter-sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 10%;
+}
+
+.sort-dropdown {
+  padding: 8px 12px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.nasa-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin: 30px 10%;
+}
+
+.nasa-card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  transition: 0.3s;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.nasa-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.nasa-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nasa-image {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.nasa-name {
+  font-size: 18px;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+.price-section {
+  margin-top: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: gray;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: #d32f2f;
+  font-weight: 600;
+}

@@ -20,8 +20,8 @@ import BannerImage from "../components/BannerImage/BannerImage";
 export default function Home() {
   return (
     <>
-      <HeroBanner />
-      <Navbar/>
+      {/* <HeroBanner /> */}
+      {/* <Navbar/> */}
       <BannerImage/>
       <FandomFusion/>
       <ProductCategories/>

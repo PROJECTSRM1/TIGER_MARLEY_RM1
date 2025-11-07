@@ -1,0 +1,93 @@
+.punjab-page {
+  width: 100%;
+  background-color: #fff;
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.punjab-banner {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.banner-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.punjab-filter-sort {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 100px;
+}
+
+.filter {
+  font-weight: 600;
+  color: #b71c1c;
+}
+
+.sort-dropdown {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.punjab-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 30px 60px;
+}
+
+.punjab-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  padding: 10px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.punjab-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(183, 28, 28, 0.3);
+}
+
+.punjab-image {
+  width: 100%;
+  border-radius: 8px;
+}
+
+.punjab-name {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #222;
+}
+
+.price-section {
+  margin-top: 5px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #888;
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.new-price {
+  color: #b71c1c;
+  font-weight: 700;
+  font-size: 15px;
+}
+
+.punjab-link {
+  text-decoration: none;
+  color: inherit;
+}

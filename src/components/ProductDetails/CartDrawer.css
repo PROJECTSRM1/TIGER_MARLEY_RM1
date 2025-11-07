@@ -86,9 +86,6 @@
   border-radius: 4px;
 }
 
-/* ==============================
-   You May Also Like Section
-   ============================== */
 .suggestions {
   background: #fff;
   padding: 12px;
@@ -159,9 +156,6 @@
   font-size: 13px;
 }
 
-/* ==============================
-   Checkout Section
-   ============================== */
 .checkout-section {
   position: sticky;
   bottom: 0;

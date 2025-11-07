@@ -7,19 +7,19 @@ const merchItems = [
     id: 1,
     name: "Mumbai Indians",
     image: require("../../assets/official_merchandise/mumbai.jpg"),
-    url: "#",
+    url: "/mumbai",
   },
   {
     id: 2,
     name: "Punjab Kings",
     image: require("../../assets/official_merchandise/punjab.jpg"),
-    url: "#",
+    url: "/punjab",
   },
   {
     id: 3,
     name: "NASA",
     image: require("../../assets/official_merchandise/nasa.jpg"),
-    url: "#",
+    url: "/nasa",
   },
 ];
 
@@ -44,21 +44,27 @@ const OfficialMM = () => {
         <p className="clearance-subtitle">GREAT DEALS!</p>
         <h2 className="clearance-title">CLEARANCE STORE UPTO 50%</h2>
         <div className="size-buttons">
-          <Link to="#" className="size-btn">SIZE XS</Link>
-          <Link to="#" className="size-btn">SIZE S</Link>
-          <Link to="#" className="size-btn active">SIZE M</Link>
-          <Link to="#" className="size-btn">SIZE L</Link>
-          <Link to="#" className="size-btn">SIZE XL</Link>
-          <Link to="#" className="size-btn">SIZE 2XL</Link>
+          <Link to="/size/xs" className="size-btn">SIZE XS</Link>
+          <Link to="/size/s" className="size-btn">SIZE S</Link>
+          <Link to="/size/m" className="size-btn active">SIZE M</Link>
+          <Link to="/size/l" className="size-btn">SIZE L</Link>
+          <Link to="/size/xl" className="size-btn">SIZE XL</Link>
+          <Link to="/size/xxl" className="size-btn">SIZE 2XL</Link>
         </div>
       </div>
+
       <div className="promo-wrapper">
         <div className="promo-section">
           <div className="promo-card">
             <div className="promo-content">
               <h3>CORPORATE</h3>
               <p>Anything & Anything for your Teams / Office</p>
-              <Link to="#" className="promo-btn">Shop for your Team</Link>
+              <a
+                href="https://api.whatsapp.com/send?phone=8247582810&text=Hi, I’m interested in Corporate Merchandise!"
+                className="promo-btn"
+              >
+                Shop for your Team
+              </a>
             </div>
             <img
               src={require("../../assets/official_merchandise/promo1.jpg")}
@@ -71,7 +77,12 @@ const OfficialMM = () => {
             <div className="promo-content">
               <h3>CUSTOMIZE</h3>
               <p>Design your own t-shirts, hoodies & more with Dudeme!</p>
-              <Link to="#" className="promo-btn">Customize Now</Link>
+              <a
+                href="https://api.whatsapp.com/send?phone=8247582810&text=Hi, I want to customize my own T-shirt!"
+                className="promo-btn"
+              >
+                Customize Now
+              </a>
             </div>
             <img
               src={require("../../assets/official_merchandise/promo2.jpg")}
@@ -79,6 +90,7 @@ const OfficialMM = () => {
               className="promo-img"
             />
           </div>
+
         </div>
       </div>
     </div>
