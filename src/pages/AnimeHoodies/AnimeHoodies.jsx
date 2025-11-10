@@ -58,7 +58,7 @@ const AnimeHoodies = () => {
             <h3 style={{ margin: "15px 0 5px" }}>{product.title}</h3>
             <p style={{ fontWeight: "bold" }}>₹{product.price}</p>
 
-            <button
+            {/* <button
               onClick={(e) => {
                 e.stopPropagation(); 
                 handleNavigate(product);
@@ -74,7 +74,7 @@ const AnimeHoodies = () => {
               }}
             >
               Add to Cart
-            </button>
+            </button> */}
           </div>
         ))}
       </div>

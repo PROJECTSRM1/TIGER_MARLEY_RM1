@@ -141,3 +141,11 @@
     grid-template-columns: 1fr;
   }
 }
+
+
+
+.xs-link {
+  text-decoration: none;   /* Removes underline */
+  color: inherit;          /* Keeps text color same as parent */
+  display: block;          /* Makes the entire card clickable cleanly */
+}
