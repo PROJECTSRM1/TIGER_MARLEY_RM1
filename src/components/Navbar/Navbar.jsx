@@ -1,8 +1,8 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext } from "react";
 import { Search,User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import "./Navbar.css";
 import { staticCartData } from "../../data/staticCartData";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -16,7 +16,6 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(""); 
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -30,10 +29,6 @@ const Navbar = () => {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
   const navigate = useNavigate();
-  const goToRegister = () => {
-    navigate("/register");
-  };
-  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
 
   const location = useLocation();
      useEffect(() => {
@@ -149,6 +144,7 @@ useEffect(() => {
   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   setWishlistItems(storedWishlist);
 
+  
    window.addEventListener("storage", () => {
     const updatedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     setWishlistItems(updatedWishlist);
@@ -156,9 +152,6 @@ useEffect(() => {
    }, []);
   
 
-  const removeFromCart = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
 
   return (
     <CartContext.Provider value={{ cartItems, setCartItems, setIsCartOpen }}>
