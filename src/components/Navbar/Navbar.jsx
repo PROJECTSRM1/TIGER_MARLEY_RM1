@@ -85,8 +85,6 @@ const Navbar = () => {
         p.title.toLowerCase().includes(query.toLowerCase())
       )
       : [];
-
- // ✅ Handle login with validation + persistence
   const handleLogin = (e) => {
   e.preventDefault();
 
@@ -126,7 +124,6 @@ const Navbar = () => {
         setIsLoggedIn(true);
         setIsLoginOpen(false);
 
-    // ✅ Save login info in localStorage
         localStorage.setItem("isLoggedIn", "true");
          localStorage.setItem("username", username);
 
@@ -136,18 +133,14 @@ const Navbar = () => {
   }
   };
 
-// ✅ Handle logout and clear localStorage
 const handleLogout = () => {
   setIsLoggedIn(false);
   setUsername("");
   setPassword("");
 
-  // ✅ Remove user data
   localStorage.removeItem("isLoggedIn");
   localStorage.removeItem("username");
 };
-
-// ✅ Restore login state on component mount
 useEffect(() => {
   const savedLogin = localStorage.getItem("isLoggedIn");
   const savedUsername = localStorage.getItem("username");
@@ -364,7 +357,6 @@ useEffect(() => {
         <X className="close-icon" onClick={() => setIsLoginOpen(false)} />
        </div>
 
-         {/* ✅ LOGIN FORM */}
          {!isRegisterMode && !isForgotPasswordMode && (
          <form className="login-form" onSubmit={handleLogin}>
           <label>
@@ -414,7 +406,6 @@ useEffect(() => {
         </form>
          )}
   </div>
-      {/* ✅ REGISTER FORM */}
       {isRegisterMode && !isForgotPasswordMode && (
         <form
           className="register-form"
@@ -468,7 +459,6 @@ useEffect(() => {
         </form>
       )}
 
-       {/* ✅ FORGOT PASSWORD FORM */}
        {isForgotPasswordMode && (
         <form
           className="login-form"
@@ -711,5 +701,6 @@ useEffect(() => {
     </CartContext.Provider>
   );
 };
+
 
 export default Navbar;
