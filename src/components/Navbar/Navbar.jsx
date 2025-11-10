@@ -1,13 +1,11 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext } from "react";
 import { Search,User, Heart, ShoppingCart, Menu, X } from "lucide-react";
 import "./Navbar.css";
 import { staticCartData } from "../../data/staticCartData";
-import Register from "./../Register/Register";
-import { Navigate, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
-// import { User } from "react-feather";
 export const CartContext = createContext();
 
 const Navbar = () => {
@@ -18,7 +16,6 @@ const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [loginError, setLoginError] = useState(""); 
   const [query, setQuery] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("");
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -32,13 +29,8 @@ const Navbar = () => {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
   const navigate = useNavigate();
-  const goToRegister = () => {
-    navigate("/register");
-  };
-  const [showConfirmPopup, setShowConfirmPopup] = useState(false);
 
   const location = useLocation();
-   // Detect if user should open login popup automatically
      useEffect(() => {
      const params = new URLSearchParams(location.search);
      const openLogin = params.get("openLogin");
@@ -88,11 +80,9 @@ const Navbar = () => {
   const handleLogin = (e) => {
   e.preventDefault();
 
-  // Clear previous errors
   setEmailError("");
   setPasswordError("");
 
-  // Validate email format
   const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
 
   if (!username) {
@@ -154,7 +144,7 @@ useEffect(() => {
   const storedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
   setWishlistItems(storedWishlist);
 
-  // Update when wishlist changes elsewhere
+  
    window.addEventListener("storage", () => {
     const updatedWishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
     setWishlistItems(updatedWishlist);
@@ -162,9 +152,6 @@ useEffect(() => {
    }, []);
   
 
-  const removeFromCart = (id) => {
-    setCartItems(cartItems.filter((item) => item.id !== id));
-  };
 
   return (
     <CartContext.Provider value={{ cartItems, setCartItems, setIsCartOpen }}>
